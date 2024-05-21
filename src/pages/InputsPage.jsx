@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 
 export default function InputsPage() {
+  const dateInputRef = useRef(null);
+
+  const handleDateButtonClick = () => {
+    dateInputRef.current.click();
+    dateInputRef.current.showPicker();
+
+  };
   return (
     <div>
     <div className="ps-1rem">
@@ -20,8 +27,48 @@ export default function InputsPage() {
     <a className="btn btn-ghost text-xl">Hermes</a>
   </div>
 </div>
+<div className="inputs" style={{ display: 'flex', flexDirection: 'column', paddingLeft: '16px' }}>
+<div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+
+          <input type="text" placeholder="Destination" className="input input-bordered input-sm w-full max-w-xs" style={{ marginBottom: '16px', marginRight: '100px' }}/>
+          <div className="form-control">
+  <label className="label cursor-pointer">
+  <span className="label-text font-bold" style={{marginRight: '10px' }}>Attractions: </span>
+    <span className="label-text " style={{marginRight: '10px'}}>Museums</span> 
+    <input type="checkbox" defaultChecked className="checkbox checkbox-xs" style={{marginRight: '10px'}}/>
+    <span className="label-text" style={{marginRight: '10px'}}>Food</span> 
+    <input type="checkbox" defaultChecked className="checkbox checkbox-xs" style={{marginRight: '10px'}}/>
+    <span className="label-text" style={{marginRight: '10px'}}>Shopping</span> 
+    <input type="checkbox" defaultChecked className="checkbox checkbox-xs" style={{marginRight: '10px'}}/>
+  </label>
+</div>
+<div className="dropdown dropdown-bottom">
+  <div tabIndex={0} role="button" className="btn m-1">Party Size</div>
+  <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a>1</a></li>
+    <li><a>2</a></li>
+    <li><a>3</a></li>
+    <li><a>4</a></li>
+    <li><a>5</a></li>
+    <li><a>6</a></li>
+    <li><a>7</a></li>
+    <li><a>8+</a></li>
+  </ul>
+</div>
+</div>
+          <input type="text" placeholder="Budget" className="input input-bordered input-sm w-full max-w-xs" style={{ marginBottom: '16px' }}/>
+          
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+          <span className="label-text" style={{ marginBottom: '10px', marginRight: '10px' }}>Start Date:</span>
+          <input type="date" ref={dateInputRef} className="input input-bordered input-sm w-full max-w-xs" style={{width: '150px', marginRight: '10px' }}/>
+          <span className="label-text" style={{ marginBottom: '10px', marginRight: '10px' }}>End Date:</span>
+          <input type="date" ref={dateInputRef} className="input input-bordered input-sm w-full max-w-xs" style={{width: '150px'}} />
+  
+          </div>
+        </div>
         
       </div>
+
       
     </div>
   );
