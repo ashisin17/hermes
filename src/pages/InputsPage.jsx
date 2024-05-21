@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 export default function InputsPage() {
   const dateInputRef = useRef(null);
@@ -7,6 +7,12 @@ export default function InputsPage() {
     dateInputRef.current.click();
     dateInputRef.current.showPicker();
 
+  };
+
+  const [partySize, setPartySize] = useState("Party Size");
+
+  const handlePartySizeSelection = (size) => {
+    setPartySize(`Party Size: ${size}`);
   };
   return (
     <div>
@@ -43,16 +49,16 @@ export default function InputsPage() {
               </label>
             </div>
             <div className="dropdown dropdown-bottom">
-              <div tabIndex={0} role="button" className="btn m-1">Party Size</div>
+            <div tabIndex={0} role="button" className="btn m-1">{partySize}</div>
               <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>1</a></li>
-                <li><a>2</a></li>
-                <li><a>3</a></li>
-                <li><a>4</a></li>
-                <li><a>5</a></li>
-                <li><a>6</a></li>
-                <li><a>7</a></li>
-                <li><a>8+</a></li>
+                <li><a onClick={() => handlePartySizeSelection("1")}>1</a></li>
+                <li><a onClick={() => handlePartySizeSelection("2")}>2</a></li>
+                <li><a onClick={() => handlePartySizeSelection("3")}>3</a></li>
+                <li><a onClick={() => handlePartySizeSelection("4")}>4</a></li>
+                <li><a onClick={() => handlePartySizeSelection("5")}>5</a></li>
+                <li><a onClick={() => handlePartySizeSelection("6")}>6</a></li>
+                <li><a onClick={() => handlePartySizeSelection("7")}>7</a></li>
+                <li><a onClick={() => handlePartySizeSelection("8+")}>8+</a></li>
               </ul>
             </div>
           </div>
