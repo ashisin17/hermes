@@ -1,5 +1,7 @@
 ## SETUP Project
 
+For research on which components and styles to use, look into DaisyUI and TailWind CSS
+
 ```
 //inside terminal run the following
 npm install @tailwindcss/typography
