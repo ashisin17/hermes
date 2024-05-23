@@ -97,34 +97,34 @@ export default function InputsPage() {
           </div>
           <div className="flex-1 pr-4 mb-4 ml-12 mr-12">
             <div className="form-control">
-              <label className="label cursor-pointer" >
+              <label className="label cursor-pointer">
                 <span className="label-text font-bold text-lg">Attractions:</span>
               </label>
-              <label className="label cursor-pointer block">
-                <input type="checkbox" name="museums" className="checkbox checkbox-xs mr-2" />
+              <label className="label cursor-pointer flex justify-between">
                 <span className="label-text">Museums</span>
+                <input type="checkbox" name="museums" className="checkbox checkbox-xs ml-2" />
               </label>
-              <label className="label cursor-pointer block">
-                <input type="checkbox" name="food" className="checkbox checkbox-xs mr-2" />
+              <label className="label cursor-pointer flex justify-between">
                 <span className="label-text">Food</span>
+                <input type="checkbox" name="food" className="checkbox checkbox-xs ml-2" />
               </label>
-              <label className="label cursor-pointer block">
-                <input type="checkbox" name="shopping" className="checkbox checkbox-xs mr-2" />
+              <label className="label cursor-pointer flex justify-between">
                 <span className="label-text">Shopping</span>
+                <input type="checkbox" name="shopping" className="checkbox checkbox-xs ml-2" />
               </label>
-              <label className="label cursor-pointer block">
-                <input type="checkbox" name="views" className="checkbox checkbox-xs mr-2" />
+              <label className="label cursor-pointer flex justify-between">
                 <span className="label-text">Views</span>
+                <input type="checkbox" name="views" className="checkbox checkbox-xs ml-2" />
               </label>
             </div>
           </div>
           <div className="flex-1 pr-4 mb-4">
             <div className="dropdown dropdown-bottom ml-24 w-4/5 ">
-              <div tabIndex={0} role="button" className="btn btn-ghost m-1 w-4/5 bg-gray" onClick={() => setDropdownOpen(!dropdownOpen)}>
+              <div tabIndex={0} role="button" className="btn btn-ghost m-1 w-4/5 bg-lightgray" onClick={() => setDropdownOpen(!dropdownOpen)}>
                 Party Size: {partySize}
               </div>
               {dropdownOpen && (
-                <ul tabIndex={0} className="dropdown-content bg-gray z-[1] menu p-2 shadow rounded-box w-4/5">
+                <ul tabIndex={0} className="dropdown-content bg-lightgray z-[1] menu p-2 shadow rounded-box w-4/5">
                   <li><a onClick={() => handlePartySizeSelection("1")}>1</a></li>
                   <li><a onClick={() => handlePartySizeSelection("2")}>2</a></li>
                   <li><a onClick={() => handlePartySizeSelection("3")}>3</a></li>
@@ -143,10 +143,6 @@ export default function InputsPage() {
 
         </form>
       </div>
-
-      
-      
     </div>
   );
 }
-
