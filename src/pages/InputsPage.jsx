@@ -72,10 +72,7 @@ export default function InputsPage() {
 
           </div>
         </div>
-
       </div>
-
-
     </div>
   );
 }
