@@ -91,7 +91,7 @@ export default function InputsPage() {
               <input type="date" name="startDate" className="input input-bordered input-sm w-full max-w-xs" style={{ width: '150px' }} />
             </div>
             <div>
-              <span className="label-text mr-2">End Date:    </span>
+              <span className="label-text mr-2">End Date: &nbsp;</span>
               <input type="date" name="endDate" className="input input-bordered input-sm w-full max-w-xs" style={{ width: '150px' }} />
             </div>
           </div>
