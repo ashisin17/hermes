@@ -4,10 +4,12 @@ import logoImage from "../images/logo.png";
 import nameImage from "../images/name_only.png";
 import "../output.css";
 import BottomBar from "./BottomBar.jsx"
+import reactTextareaAutosize from "react-textarea-autosize";
 
 export default function InputsPage() {
   const [partySize, setPartySize] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userInput, setUserInput] = useState("");
 
   const handlePartySizeSelection = (size) => {
     setPartySize(`${size}`);
@@ -50,6 +52,11 @@ export default function InputsPage() {
     //   .catch((error) => {
     //     console.error("Error:", error);
     //   });
+  };
+
+
+  const handleInputChange = (event) => {
+    setUserInput(event.target.value);
   };
 
   return (
@@ -135,6 +142,24 @@ export default function InputsPage() {
                   <li><a onClick={() => handlePartySizeSelection("8+")}>8+</a></li>
                 </ul>
               )}
+
+            </div>
+                        {/* New Text Box for User Input */}
+
+                        <div>
+              <textarea
+                  className="mt-6 flex w-[27.5rem] py-2"
+                  name="additionalInfo"
+                  rows={8}
+                  cols={48}
+             
+              value={userInput} 
+              placeholder="Enter additional information"
+              onChange={handleInputChange} 
+              style={{ marginBottom: '16px', padding: '8px', resize: 'none' }}
+              >
+
+              </textarea>
             </div>
           </div>
           <div style={{ flex: '1 1 100%', textAlign: 'right', paddingRight: '16px', marginRight: '3rem' }}>
