@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="App">
       <InputsPage />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 mb-[5rem]">
         <div className="col-span-1">
           <MapsSection />
         </div>

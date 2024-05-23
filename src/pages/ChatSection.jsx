@@ -3,7 +3,7 @@ import "../output.css"; // Ensure Tailwind CSS is imported
 
 export default function ChatSection() {
   return (
-    <div className="mt-12 ml-6 mb-20">
+    <div className="mt-12 mr-3 mb-20">
       <div className="max-w-xl mx-auto px-5 font-sans overflow-y-scroll h-[600px]">
         <h1 className="text-2xl font-bold text-center text-gray">London Trip Plan</h1>
 

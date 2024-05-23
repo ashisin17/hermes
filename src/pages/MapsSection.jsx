@@ -35,7 +35,7 @@ export default function MapsPage() {
 
   return (
     <>
-      <div className="mt-12 ml-6 mb-20">
+      <div className="mt-12 ml-16 mb-20">
         <GoogleMap
           mapContainerStyle={{ width: '100%', height: '600px' }}
           center={initialPosition}
