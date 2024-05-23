@@ -77,7 +77,7 @@ export default function InputsPage() {
             </div>
           </div>
 
-        
+
           <div className="navbar-center">
             {/* <a className="font-bold text-2xl">Hermes</a> */}
             <img src={nameImage} alt="Logo" className="h-12 mt-2 -ml-3.5" />
@@ -144,19 +144,19 @@ export default function InputsPage() {
               )}
 
             </div>
-                        {/* New Text Box for User Input */}
+            {/* New Text Box for User Input */}
 
-                        <div>
+            <div>
               <textarea
-                  className="mt-6 flex w-[27.5rem] py-2"
-                  name="additionalInfo"
-                  rows={8}
-                  cols={48}
-             
-              value={userInput} 
-              placeholder="Enter additional information"
-              onChange={handleInputChange} 
-              style={{ marginBottom: '16px', padding: '8px', resize: 'none' }}
+                className="mt-6 flex w-[27.5rem] py-2"
+                name="additionalInfo"
+                rows={8}
+                cols={48}
+
+                value={userInput}
+                placeholder="Enter additional information"
+                onChange={handleInputChange}
+                style={{ marginBottom: '16px', padding: '8px', resize: 'none' }}
               >
 
               </textarea>
@@ -164,7 +164,7 @@ export default function InputsPage() {
           </div>
           <div style={{ flex: '1 1 100%', textAlign: 'right', paddingRight: '16px', marginRight: '3rem' }}>
             <button type="submit" className="btn btn-ghost">Submit</button>
-          </div>  
+          </div>
 
         </form>
       </div>
