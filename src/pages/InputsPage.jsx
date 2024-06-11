@@ -1,19 +1,18 @@
-import React, { useState } from "react";
-// Import your logo image
+// src/pages/InputsPage.jsx
+import React, { useContext, useState } from "react";
+import { TravelContext } from "../context/TravelContext";
 import logoImage from "../images/logo.png";
 import nameImage from "../images/name_only.png";
 import "../output.css";
-import BottomBar from "./BottomBar.jsx"
+import BottomBar from "./BottomBar.jsx";
 import reactTextareaAutosize from "react-textarea-autosize";
 
 export default function InputsPage() {
-  const [partySize, setPartySize] = useState("");
+  const { formData, setFormData } = useContext(TravelContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [userInput, setUserInput] = useState("");
 
   const handlePartySizeSelection = (size) => {
-    setPartySize(`${size}`);
-    // Close the dropdown
+    setFormData({ ...formData, partySize: `${size}` });
     setDropdownOpen(false);
   };
 
@@ -21,7 +20,7 @@ export default function InputsPage() {
     event.preventDefault();
     const formData = new FormData(event.target);
 
-    const data = {
+    setFormData({
       destination: formData.get("destination"),
       budget: formData.get("budget"),
       startDate: formData.get("startDate"),
@@ -32,31 +31,15 @@ export default function InputsPage() {
         shopping: formData.get("shopping") === "on",
         views: formData.get("views") === "on",
       },
-      partySize,
-    };
+      partySize: formData.get("partySize"),
+      userInput: formData.get("additionalInfo"),
+    });
 
-    console.log(data);
-
-    // Replace the URL with your backend API endpoint
-    // fetch("https://your-backend-api-endpoint.com/submit", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((result) => {
-    //     console.log("Success:", result);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error:", error);
-    //   });
+    // fetch to backend API here
   };
 
-
   const handleInputChange = (event) => {
-    setUserInput(event.target.value);
+    setFormData({ ...formData, userInput: event.target.value });
   };
 
   return (
@@ -77,14 +60,11 @@ export default function InputsPage() {
             </div>
           </div>
 
-
           <div className="navbar-center">
-            {/* <a className="font-bold text-2xl">Hermes</a> */}
             <img src={nameImage} alt="Logo" className="h-12 mt-2 -ml-3.5" />
           </div>
         </div>
 
-        {/* end of navbar */}
         <form className="inputs flex flex-wrap pl-4 mt-8" onSubmit={handleSubmit}>
           <div className="flex-1 pr-4 ml-12 mb-4 flex flex-col">
             <div className="mb-6">
@@ -128,7 +108,7 @@ export default function InputsPage() {
           <div className="flex-1 pr-4 mb-4">
             <div className="dropdown dropdown-bottom ml-24 w-4/5 ">
               <div tabIndex={0} role="button" className="btn btn-ghost m-1 w-4/5 bg-lightgray" onClick={() => setDropdownOpen(!dropdownOpen)}>
-                Party Size: {partySize}
+                Party Size: {formData.partySize}
               </div>
               {dropdownOpen && (
                 <ul tabIndex={0} className="dropdown-content bg-lightgray z-[1] menu p-2 shadow rounded-box w-4/5">
@@ -142,9 +122,7 @@ export default function InputsPage() {
                   <li><a onClick={() => handlePartySizeSelection("8+")}>8+</a></li>
                 </ul>
               )}
-
             </div>
-            {/* New Text Box for User Input */}
 
             <div>
               <textarea
@@ -152,20 +130,16 @@ export default function InputsPage() {
                 name="additionalInfo"
                 rows={8}
                 cols={48}
-
-                value={userInput}
+                value={formData.userInput}
                 placeholder="Enter additional information"
                 onChange={handleInputChange}
                 style={{ marginBottom: '16px', padding: '8px', resize: 'none' }}
-              >
-
-              </textarea>
+              />
             </div>
           </div>
           <div style={{ flex: '1 1 100%', textAlign: 'right', paddingRight: '16px', marginRight: '3rem' }}>
             <button type="submit" className="btn btn-ghost">Submit</button>
           </div>
-
         </form>
       </div>
     </div>
